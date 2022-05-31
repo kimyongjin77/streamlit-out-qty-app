@@ -1,1 +1,3 @@
 # streamlit-out-qty-app
+
+물류센터 출고수량 예측 앱...
