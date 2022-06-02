@@ -9,22 +9,6 @@ from fbprophet.plot import plot_plotly
 def run_ml():
     #pass
     st.header('전체/거래처별/제품별 출고수량 예측')
-
-    #st.__version__
-    print(st.__version__)
-
-    #df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='ansi', index_col=0)
-    print('run_ml process 1')
-    df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='CP949', index_col=0)
-    print('run_ml process 2')
-
-    df_cust_sum['출고일자'] = df_cust_sum['출고일자'].astype("datetime64")
-    print('run_ml process 3')
-    df_cust_sum['주간출고일자'] = df_cust_sum['주간출고일자'].astype("datetime64")
-    print('run_ml process 4')
-    df_cust_sum['월간출고일자'] = df_cust_sum['월간출고일자'].astype("datetime64")
-    print('run_ml process 5')
-    df_cust_sum['거래처'] = df_cust_sum['거래처코드'] + '-' + df_cust_sum['거래처명']
     
     #df_item_sum = pd.read_csv('data/item_sum.csv', encoding='ansi', index_col=0)
     print('run_ml process 6')
@@ -38,23 +22,21 @@ def run_ml():
     df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
     print('run_ml process 10')
     
-    # df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
-    # print('run_ml process 11')
+    df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
+    print('run_ml process 11')
 
-    # try:
-    #     df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
-    #     print('run_ml process 11')
-    # except RuntimeError as err:
-    #     print("Runtime error: {0}".format(err))
-    # except OSError as err:
-    #     print("OS error: {0}".format(err))
-    # except ValueError:
-    #     print("Could not convert data to an integer.")
-    # except BaseException as err:
-    #     print("Base error: {0}".format(err))
-    #     #print("Unexpected: {err=}, {type(err)=}")
-    # else:
-    #     pass
+    #df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='ansi', index_col=0)
+    print('run_ml process 1')
+    df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='CP949', index_col=0)
+    print('run_ml process 2')
+
+    df_cust_sum['출고일자'] = df_cust_sum['출고일자'].astype("datetime64")
+    print('run_ml process 3')
+    df_cust_sum['주간출고일자'] = df_cust_sum['주간출고일자'].astype("datetime64")
+    print('run_ml process 4')
+    df_cust_sum['월간출고일자'] = df_cust_sum['월간출고일자'].astype("datetime64")
+    print('run_ml process 5')
+    df_cust_sum['거래처'] = df_cust_sum['거래처코드'] + '-' + df_cust_sum['거래처명']
 
     df_sum=df_cust_sum.groupby(['출고일자'])['수량'].sum()
     print('run_ml process 12')
