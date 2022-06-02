@@ -9,21 +9,6 @@ from fbprophet.plot import plot_plotly
 def run_ml():
     #pass
     st.header('전체/거래처별/제품별 출고수량 예측')
-    
-    #df_item_sum = pd.read_csv('data/item_sum.csv', encoding='ansi', index_col=0)
-    print('run_ml process 6')
-    df_item_sum = pd.read_csv('data/item_sum.csv', encoding='CP949', index_col=0)
-    print('run_ml process 7')
-
-    df_item_sum['출고일자'] = df_item_sum['출고일자'].astype("datetime64")
-    print('run_ml process 8')
-    df_item_sum['주간출고일자'] = df_item_sum['주간출고일자'].astype("datetime64")
-    print('run_ml process 9')
-    df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
-    print('run_ml process 10')
-    
-    df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
-    print('run_ml process 11')
 
     #df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='ansi', index_col=0)
     print('run_ml process 1')
@@ -37,6 +22,21 @@ def run_ml():
     df_cust_sum['월간출고일자'] = df_cust_sum['월간출고일자'].astype("datetime64")
     print('run_ml process 5')
     df_cust_sum['거래처'] = df_cust_sum['거래처코드'] + '-' + df_cust_sum['거래처명']
+
+    # #df_item_sum = pd.read_csv('data/item_sum.csv', encoding='ansi', index_col=0)
+    # print('run_ml process 6')
+    # df_item_sum = pd.read_csv('data/item_sum.csv', encoding='CP949', index_col=0)
+    # print('run_ml process 7')
+
+    # df_item_sum['출고일자'] = df_item_sum['출고일자'].astype("datetime64")
+    # print('run_ml process 8')
+    # df_item_sum['주간출고일자'] = df_item_sum['주간출고일자'].astype("datetime64")
+    # print('run_ml process 9')
+    # df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
+    # print('run_ml process 10')
+    
+    # df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
+    # print('run_ml process 11')
 
     df_sum=df_cust_sum.groupby(['출고일자'])['수량'].sum()
     print('run_ml process 12')
