@@ -38,8 +38,8 @@ def run_ml():
     df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
     print('run_ml process 10')
     
-    # df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
-    # print('run_ml process 11')
+    df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
+    print('run_ml process 11')
 
     # try:
     #     df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
