@@ -29,6 +29,9 @@ def run_ml():
 
     df_sum=df_cust_sum.groupby(['출고일자'])['수량'].sum()
     df_sum=pd.DataFrame(df_sum).reset_index()
+    
+    print('run_ml data loaded...')
+    print('expander rander start...')
 
     with st.expander('전체 출고수량 예측', False):
         #pass
