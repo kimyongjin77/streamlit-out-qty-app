@@ -136,3 +136,5 @@ def run_ml():
             st.write(f'' + select_item + ' ' + str(n_months_period) + '개월 예측 components')
             fig2=prophet.plot_components(forecast)
             st.write(fig2)
+    
+    st.markdown('---')
