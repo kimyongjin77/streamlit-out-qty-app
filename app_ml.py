@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from fbprophet import Prophet
 from fbprophet.plot import plot_plotly
-from plotly import graph_objs as go
 
 def run_ml():
     #pass
