@@ -1,6 +1,6 @@
 import streamlit as st
-
-from app_eda import run_eda
+import common as cm
+import app_eda as eda
 
 st.set_page_config(
    page_title='물류센터 출고수량 예측',
@@ -12,7 +12,11 @@ st.set_page_config(
 def main():
     #pass
     st.title('물류센터 출고수량 예측 (Facebook Prophet 라이브러리)')
-    run_eda()
+
+    cm.fontLoad()
+    cm.DataLoad()
+
+    eda.run_eda()
 
 if __name__=='__main__':
     main()
