@@ -38,8 +38,12 @@ def run_ml():
     print('run_ml process 9')
     df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
     print('run_ml process 10')
-    df_item_sum['제품'] = df_item_sum['제품코드'].astype(str) + '-' + df_item_sum['제품명']
-    print('run_ml process 11')
+    
+    try:
+        df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
+        print('run_ml process 11')
+    except RuntimeError as err:
+        print(err)
 
     df_sum=df_cust_sum.groupby(['출고일자'])['수량'].sum()
     print('run_ml process 12')
