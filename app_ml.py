@@ -42,7 +42,16 @@ def run_ml():
         df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
         print('run_ml process 11')
     except RuntimeError as err:
-        print(err)
+        print("Runtime error: {0}".format(err))
+    except OSError as err:
+        print("OS error: {0}".format(err))
+    except ValueError:
+        print("Could not convert data to an integer.")
+    except BaseException as err:
+        print("Base error: {0}".format(err))
+        #print("Unexpected: {err=}, {type(err)=}")
+    else:
+        pass
 
     df_sum=df_cust_sum.groupby(['출고일자'])['수량'].sum()
     print('run_ml process 12')
