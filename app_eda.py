@@ -151,17 +151,23 @@ def run_eda():
 
     #info1=st.info('데이터 로딩중.....잠시 기다려 주세요.')
 
-    df_head = pd.read_csv('data/concat_head.csv', encoding='ansi', index_col=0)
+    #df_head = pd.read_csv('data/concat_head.csv', encoding='ansi', index_col=0)
+    df_head = pd.read_csv('data/concat_head.csv', encoding='CP949', index_col=0)
 
-    df_describe = pd.read_csv('data/concat_describe.csv', encoding='ansi', index_col=0)
+    #df_describe = pd.read_csv('data/concat_describe.csv', encoding='ansi', index_col=0)
+    df_describe = pd.read_csv('data/concat_describe.csv', encoding='CP949', index_col=0)
 
-    df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='ansi', index_col=0)
+    #df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='ansi', index_col=0)
+    df_cust_sum = pd.read_csv('data/cust_sum.csv', encoding='CP949', index_col=0)
+
     df_cust_sum['출고일자'] = df_cust_sum['출고일자'].astype("datetime64")
     df_cust_sum['주간출고일자'] = df_cust_sum['주간출고일자'].astype("datetime64")
     df_cust_sum['월간출고일자'] = df_cust_sum['월간출고일자'].astype("datetime64")
     df_cust_sum['거래처'] = df_cust_sum['거래처코드'] + '-' + df_cust_sum['거래처명']
 
-    df_item_sum = pd.read_csv('data/item_sum.csv', encoding='ansi', index_col=0)
+    #df_item_sum = pd.read_csv('data/item_sum.csv', encoding='ansi', index_col=0)
+    df_item_sum = pd.read_csv('data/item_sum.csv', encoding='CP949', index_col=0)
+
     df_item_sum['출고일자'] = df_item_sum['출고일자'].astype("datetime64")
     df_item_sum['주간출고일자'] = df_item_sum['주간출고일자'].astype("datetime64")
     df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
