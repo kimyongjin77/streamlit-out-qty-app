@@ -38,8 +38,8 @@ def run_ml():
     df_item_sum['월간출고일자'] = df_item_sum['월간출고일자'].astype("datetime64")
     print('run_ml process 10')
     
-    df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
-    print('run_ml process 11')
+    # df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
+    # print('run_ml process 11')
 
     # try:
     #     df_item_sum['제품'] = df_item_sum['제품코드'] + '-' + df_item_sum['제품명']
@@ -135,44 +135,44 @@ def run_ml():
             fig2=prophet.plot_components(forecast)
             st.write(fig2)
 
-    with st.expander('제품별 출고수량 예측', False):
-        #pass
-        item_names = sorted(df_item_sum['제품'].unique())
-        select_item = st.selectbox(
-            '제품 선택',
-            item_names,
-            index=item_names.index('110000097-바이탈뷰티 슬림컷 28EA_18AD(시판)')
-        )
+    # with st.expander('제품별 출고수량 예측', False):
+    #     #pass
+    #     item_names = sorted(df_item_sum['제품'].unique())
+    #     select_item = st.selectbox(
+    #         '제품 선택',
+    #         item_names,
+    #         index=item_names.index('110000097-바이탈뷰티 슬림컷 28EA_18AD(시판)')
+    #     )
         
-        #select_item_df = pd.DataFrame(select_item).rename(columns={0: "제품"})
+    #     #select_item_df = pd.DataFrame(select_item).rename(columns={0: "제품"})
 
-        n_months_period = st.slider('예측개월수',1,12,12,disabled=True, key='5')
-        #n_months_period = 12
-        n_days_period = n_months_period * 30
-        n_weeks_period = n_months_period * 5
+    #     n_months_period = st.slider('예측개월수',1,12,12,disabled=True, key='5')
+    #     #n_months_period = 12
+    #     n_days_period = n_months_period * 30
+    #     n_weeks_period = n_months_period * 5
         
-        submitted = st.button(label='예측 실행', key='6')
+    #     submitted = st.button(label='예측 실행', key='6')
 
-        if select_item != '' and submitted:
-            #print(select_item)
-            txt_info=st.info('학습데이터 추출 중입니다. 잠시 기다려 주세요...')
-            prophet_df = df_item_sum.loc[df_item_sum['제품']==select_item,['출고일자','수량']]
-            prophet_df.columns = ['ds', 'y']
-            #txt_info.info('학습데이터 추출 완료.')
-            prophet=Prophet()
-            txt_info.info('학습 중입니다. 잠시 기다려 주세요...')
-            prophet.fit(prophet_df)
-            txt_info.info('학습 완료하여 예측 중입니다. 잠시 기다려 주세요...')
-            future=prophet.make_future_dataframe(periods=n_months_period, freq='M')
-            forecast=prophet.predict(future)
-            txt_info.info('예측 완료.')
+    #     if select_item != '' and submitted:
+    #         #print(select_item)
+    #         txt_info=st.info('학습데이터 추출 중입니다. 잠시 기다려 주세요...')
+    #         prophet_df = df_item_sum.loc[df_item_sum['제품']==select_item,['출고일자','수량']]
+    #         prophet_df.columns = ['ds', 'y']
+    #         #txt_info.info('학습데이터 추출 완료.')
+    #         prophet=Prophet()
+    #         txt_info.info('학습 중입니다. 잠시 기다려 주세요...')
+    #         prophet.fit(prophet_df)
+    #         txt_info.info('학습 완료하여 예측 중입니다. 잠시 기다려 주세요...')
+    #         future=prophet.make_future_dataframe(periods=n_months_period, freq='M')
+    #         forecast=prophet.predict(future)
+    #         txt_info.info('예측 완료.')
 
-            st.write(f'' + select_item + ' ' + str(n_months_period) + '개월 예측 그래프')
-            fig1 = plot_plotly(prophet, forecast, xlabel='출고일자', ylabel='수량')
-            st.plotly_chart(fig1, use_container_width=True)
+    #         st.write(f'' + select_item + ' ' + str(n_months_period) + '개월 예측 그래프')
+    #         fig1 = plot_plotly(prophet, forecast, xlabel='출고일자', ylabel='수량')
+    #         st.plotly_chart(fig1, use_container_width=True)
             
-            st.write(f'' + select_item + ' ' + str(n_months_period) + '개월 예측 components')
-            fig2=prophet.plot_components(forecast)
-            st.write(fig2)
+    #         st.write(f'' + select_item + ' ' + str(n_months_period) + '개월 예측 components')
+    #         fig2=prophet.plot_components(forecast)
+    #         st.write(fig2)
     
     st.markdown('---')
