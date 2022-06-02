@@ -43,7 +43,7 @@ def run_eda():
     
     st.subheader('전체 출고 현황')
     choice_item=['출고일자','주간출고일자','월간출고일자']
-    choice=st.radio('일/주/월 기준 선택', choice_item, index=2)
+    choice=st.radio('일/주/월 기준 선택', choice_item, index=2, key='radio_1')
 
     df_temp=cm.df_cust_sum.groupby([choice])['수량'].sum()
     df_temp=pd.DataFrame(df_temp).reset_index()
@@ -69,12 +69,13 @@ def run_eda():
                     '11008786-아리따움 성남(구)시청점'
                 ],
         help=instructions,
+        key='multiselect_1'
     )
 
     select_cust_df = pd.DataFrame(select_cust).rename(columns={0: "거래처"})
 
     if len(select_cust) > 0:
-        choice2=st.radio('일/주/월 기준 선택', choice_item, key='1', index=2)
+        choice2=st.radio('일/주/월 기준 선택', choice_item, index=2, key='radio_2')
 
         df_cust_preiod=cm.df_cust_sum.loc[cm.df_cust_sum['거래처'].isin(select_cust_df['거래처'])].groupby([choice2, '거래처코드', '거래처명', '거래처'])['수량'].sum()
         df_cust_preiod=pd.DataFrame(df_cust_preiod).reset_index()
@@ -103,12 +104,13 @@ def run_eda():
                     '110000108-바이탈뷰티(아) 스킨콜라겐 28입(19)'
                 ],
         help=instructions,
+        key='multiselect_2'
     )
 
     select_item_df = pd.DataFrame(select_item).rename(columns={0: "제품"})
 
     if len(select_item) > 0:
-        choice2=st.radio('일/주/월 기준 선택', choice_item, key='2', index=2)
+        choice2=st.radio('일/주/월 기준 선택', choice_item, index=2, key='radio_3')
 
         df_item_preiod=cm.df_item_sum.loc[cm.df_item_sum['제품'].isin(select_item_df['제품'])].groupby([choice2, '제품코드', '제품명', '제품'])['수량'].sum()
         df_item_preiod=pd.DataFrame(df_item_preiod).reset_index()
