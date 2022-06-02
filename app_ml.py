@@ -5,7 +5,7 @@ import common as cm
 
 def run_ml():
     #pass
-    st.header('전체/거래처별/제품별 출고수량 예측')
+    st.subheader('전체/거래처별/제품별 출고수량 예측')
 
     with st.expander('전체 출고수량 예측', True):
         #pass
