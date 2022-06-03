@@ -65,8 +65,8 @@ def run_eda():
         '비교할 거래처 선택',
         cm.df_cust_names,
         default=[
-                    '11088038-아리따움 NC야탑점',
-                    '11008786-아리따움 성남(구)시청점'
+                    '11087632-고창선운(방)',
+                    '11055285-무진장(방)'
                 ],
         help=instructions,
         key='multiselect_1'
@@ -100,8 +100,8 @@ def run_eda():
         '비교할 제품 선택',
         cm.df_item_names,
         default=[
-                    '110000097-바이탈뷰티 슬림컷 28EA_18AD(시판)',
-                    '110000108-바이탈뷰티(아) 스킨콜라겐 28입(19)'
+                    '110641096-프리메라 알파인 베리 워터리 크림 50ml (20AD',
+                    '110640635-프리메라 내추럴리치클렌징폼(18) 150ml'
                 ],
         help=instructions,
         key='multiselect_2'

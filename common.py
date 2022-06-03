@@ -6,13 +6,13 @@ import platform
 from matplotlib import font_manager, rc
 import altair as alt
 
-df_head = pd.DataFrame({'A' : []})
-df_describe = pd.DataFrame({'A' : []})
-df_cust_sum = pd.DataFrame({'A' : []})
-df_cust_names = pd.DataFrame({'A' : []})
-df_item_sum = pd.DataFrame({'A' : []})
-df_item_names = pd.DataFrame({'A' : []})
-df_sum = pd.DataFrame({'A' : []})
+df_head = pd.DataFrame()
+df_describe = pd.DataFrame()
+df_cust_sum = pd.DataFrame()
+df_cust_names = pd.DataFrame()
+df_item_sum = pd.DataFrame()
+df_item_names = pd.DataFrame()
+df_sum = pd.DataFrame()
 
 def DataLoad():
     # global myList
@@ -83,6 +83,12 @@ def GetWeekLastDate(sourceDate):
     targetDate = sourceDate + datetime.timedelta(days =  -weekDayCount + 6)
     #targetDate = AddDays(sourceDate, -weekDayCount + 6);
     return targetDate
+
+# from일자~to일자 사이의 날짜 컬럼의 데이터프레임을 생성하여 리턴
+def GetDatetimeColDataFrame(from_dt, to_dt, col_name):
+    ts_days_idx=pd.date_range(start=from_dt, end=to_dt)
+    df_datetime=pd.DataFrame(ts_days_idx, columns=[col_name])
+    return df_datetime
 
 def alt_chart_selection_multi(source, x='출고일자', y='수량', group='거래처코드', axis_scale="linear"):
     # if st.checkbox("View logarithmic scale", key=group):
@@ -164,3 +170,46 @@ def alt_chart_selection_single(source, x='출고일자', y='수량'):
                 )
 
     return (lines + points + tooltips).interactive()
+
+def alt_chart_selection_multi2(source, x='출고일자', y='수량', group='구분', axis_scale="linear"):
+    # if st.checkbox("View logarithmic scale", key=group):
+    #     axis_scale = "log"
+
+    brush = alt.selection_interval(encodings=["x"], empty="all")
+    click = alt.selection_multi(encodings=["color"])
+
+    lines = (
+                (
+                    alt.Chart(source)
+                    .mark_line(point=True)
+                    .encode(
+                                x=x,
+                                y=alt.Y(y, scale=alt.Scale(type=f"{axis_scale}")),
+                                color=group,
+                                tooltip=[
+                                            x,
+                                            group,
+                                            y,
+                                        ],
+                            )
+                )
+                .add_selection(brush)
+                .properties(width=550)
+                .transform_filter(click)
+            )
+
+    bars = (
+                alt.Chart(source)
+                .mark_bar()
+                .encode(
+                            y=group,
+                            color=group,
+                            x=alt.X("수량:Q", scale=alt.Scale(type=f"{axis_scale}")),
+                            tooltip=[x, y],
+                        )
+                .transform_filter(brush)
+                .properties(width=550)
+                .add_selection(click)
+            )
+
+    return lines & bars
