@@ -13,8 +13,8 @@ def run_eda():
     
     #link='[공공데이터포털](https://www.data.go.kr/data/15071816/fileData.do?recommendDataYn=Y)'
     #st.markdown(link, unsafe_allow_html=True)
-    #st.write(f'데이터 출처 : ' + link)
-    st.write(f'데이터 출처 : Z사')
+    #st.write('데이터 출처 : ' + link)
+    st.write('데이터 출처 : Z사')
 
     st.markdown('---')
 
@@ -25,16 +25,16 @@ def run_eda():
     item_cnt=cm.df_item_sum['제품코드'].nunique()
     col1,col2,col3 = st.columns(3)
     with col1:
-        st.write(f'데이터행수 : ' + f'{rows:,}')
+        st.write(f'데이터행수 : {rows:,}')
     with col2:
-        st.write(f'거래처수 : ' + f'{cust_cnt:,}')
+        st.write(f'거래처수 : {cust_cnt:,}')
     with col3:
-        st.write(f'품목수 : ' + f'{item_cnt:,}')
+        st.write(f'품목수 : {item_cnt:,}')
     
-    st.write(f'데이터 헤드 샘플')
+    st.write('데이터 헤드 샘플')
     st.dataframe(cm.df_head)
 
-    st.write(f'데이터 describe')
+    st.write('데이터 describe')
     df_describe_pivot=cm.df_describe.reset_index()
     df_describe_pivot = df_describe_pivot.pivot_table(columns='index',values='수량' )
     st.dataframe(df_describe_pivot)
@@ -48,31 +48,31 @@ def run_eda():
     df_temp=cm.df_cust_sum.groupby([choice])['수량'].sum()
     df_temp=pd.DataFrame(df_temp).reset_index()
     # Percentage difference (between 0-1) of downloads of current vs previous month
-    df_temp["delta"] = df_temp['수량'].pct_change().fillna(0)
+    df_temp['delta'] = df_temp['수량'].pct_change().fillna(0)
 
     st.altair_chart(cm.alt_chart_selection_single(df_temp, choice), use_container_width=True)
 
     st.markdown('---')
 
     st.subheader('거래처 비교 현황')
-    
+
     instructions = """
                     Click and drag line chart to select and pan date interval\n
                     Hover over bar chart to view downloads\n
                     Click on a bar to highlight that package
                     """
     select_cust = st.multiselect(
-        '비교할 거래처 선택',
-        cm.df_cust_names,
-        default=[
-                    '11087632-고창선운(방)',
-                    '11055285-무진장(방)'
-                ],
-        help=instructions,
-        key='multiselect_1'
-    )
+                                    '비교할 거래처 선택',
+                                    cm.df_cust_names,
+                                    default=[
+                                                '11087632-고창선운(방)',
+                                                '11055285-무진장(방)'
+                                            ],
+                                    help=instructions,
+                                    key='multiselect_1'
+                                )
 
-    select_cust_df = pd.DataFrame(select_cust).rename(columns={0: "거래처"})
+    select_cust_df = pd.DataFrame(select_cust).rename(columns={0: '거래처'})
 
     if len(select_cust) > 0:
         choice2=st.radio('일/주/월 기준 선택', choice_item, index=2, key='radio_2')
@@ -80,34 +80,26 @@ def run_eda():
         df_cust_preiod=cm.df_cust_sum.loc[cm.df_cust_sum['거래처'].isin(select_cust_df['거래처'])].groupby([choice2, '거래처코드', '거래처명', '거래처'])['수량'].sum()
         df_cust_preiod=pd.DataFrame(df_cust_preiod).reset_index()
         # Percentage difference (between 0-1) of downloads of current vs previous month
-        df_cust_preiod["delta"] = df_cust_preiod.groupby('거래처코드')['수량'].pct_change().fillna(0)
+        df_cust_preiod['delta'] = df_cust_preiod.groupby('거래처코드')['수량'].pct_change().fillna(0)
 
         st.altair_chart(cm.alt_chart_selection_multi(df_cust_preiod, choice2, '수량', '거래처'), use_container_width=True)
-    else:
-        #st.stop()
-        pass
 
     st.markdown('---')
 
     st.subheader('제품 비교 현황')
     
-    # instructions = """
-    #                 Click and drag line chart to select and pan date interval\n
-    #                 Hover over bar chart to view downloads\n
-    #                 Click on a bar to highlight that package
-    #                 """
     select_item = st.multiselect(
-        '비교할 제품 선택',
-        cm.df_item_names,
-        default=[
-                    '110641096-프리메라 알파인 베리 워터리 크림 50ml (20AD',
-                    '110640635-프리메라 내추럴리치클렌징폼(18) 150ml'
-                ],
-        help=instructions,
-        key='multiselect_2'
-    )
+                                    '비교할 제품 선택',
+                                    cm.df_item_names,
+                                    default=[
+                                                '110641096-프리메라 알파인 베리 워터리 크림 50ml (20AD',
+                                                '110640635-프리메라 내추럴리치클렌징폼(18) 150ml'
+                                            ],
+                                    help=instructions,
+                                    key='multiselect_2'
+                                )
 
-    select_item_df = pd.DataFrame(select_item).rename(columns={0: "제품"})
+    select_item_df = pd.DataFrame(select_item).rename(columns={0: '제품'})
 
     if len(select_item) > 0:
         choice2=st.radio('일/주/월 기준 선택', choice_item, index=2, key='radio_3')
@@ -115,7 +107,7 @@ def run_eda():
         df_item_preiod=cm.df_item_sum.loc[cm.df_item_sum['제품'].isin(select_item_df['제품'])].groupby([choice2, '제품코드', '제품명', '제품'])['수량'].sum()
         df_item_preiod=pd.DataFrame(df_item_preiod).reset_index()
         # Percentage difference (between 0-1) of downloads of current vs previous month
-        df_item_preiod["delta"] = df_item_preiod.groupby('제품코드')['수량'].pct_change().fillna(0)
+        df_item_preiod['delta'] = df_item_preiod.groupby('제품코드')['수량'].pct_change().fillna(0)
 
         st.altair_chart(cm.alt_chart_selection_multi(df_item_preiod, choice2, '수량', '제품'), use_container_width=True)
     
