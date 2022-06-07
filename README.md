@@ -1,6 +1,6 @@
 # 물류센터 출고수량 예측 앱...
 
-* 글자 사이즈
+* 제목 사이즈
 
 # streamlit-out-qty-app
 ## streamlit-out-qty-app
@@ -18,7 +18,7 @@ import pandas as pd
 
 [네이버](https://www.naver.com)
 
-* 순서없는 목록
+* 순서없는 목록 +, *, -  총 3가지의 기호
 
   * 1
   * 2
@@ -32,3 +32,19 @@ import pandas as pd
 * 강조
 
 **영화** 가 좋다.
+
+* BlockQuote
+
+> 안녕하세요
+> > 저는 
+> > > may-june 입니다.
+
+* 숫자 목록 출력하기
+
+1. 안녕하세요
+2. 오늘하루도
+3. 행복하세요
+
+* 구분선, 수평선
+
+------------
