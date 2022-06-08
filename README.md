@@ -60,3 +60,5 @@ import altair as alt
 > > >   + 센터 출고수량 예측(모델평가 : 평균절대오차(MAE, Mean Absolute Error) -> prophet_total.pkl 예측기 사용
 > > >   + 거래처별 출고수량 학습 및 예측
 > > >   + 제품별 출고수량 학습 및 예측
+## UI
+![img1](https://user-images.githubusercontent.com/105832520/172524356-4b030ae2-037c-47cf-9f84-50e52b68ca75.PNG)
