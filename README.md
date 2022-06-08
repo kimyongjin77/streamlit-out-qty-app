@@ -62,3 +62,11 @@ import altair as alt
 > > >   + 제품별 출고수량 학습 및 예측
 ## UI
 ![img1](https://user-images.githubusercontent.com/105832520/172524356-4b030ae2-037c-47cf-9f84-50e52b68ca75.PNG)
+![img2](https://user-images.githubusercontent.com/105832520/172525210-ce31dd92-e81f-4c75-b142-2e2b0d9dd832.PNG)
+![img3](https://user-images.githubusercontent.com/105832520/172525217-ec49f0a1-8e22-4c33-a0f6-8762fd31ae7a.PNG)
+![img4](https://user-images.githubusercontent.com/105832520/172525231-99ed0d57-d134-4b6d-b737-dfe6447d8cbd.PNG)
+![img5](https://user-images.githubusercontent.com/105832520/172525238-a4d02f96-c240-438b-8cb3-dfccb736b4bf.PNG)
+![img6](https://user-images.githubusercontent.com/105832520/172525248-4ce63aa5-cf3c-4da9-800a-2be8c40d7a8c.PNG)
+![img7](https://user-images.githubusercontent.com/105832520/172525256-f60a5634-6ca9-4626-8e44-eb53c145b077.PNG)
+![img8](https://user-images.githubusercontent.com/105832520/172525269-27332b5e-7f91-41ce-8024-0b510bbeb3b1.PNG)
+![img9](https://user-images.githubusercontent.com/105832520/172525277-3e1d57e2-6cde-4d39-a17a-98ff18968236.PNG)
