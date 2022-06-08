@@ -55,7 +55,7 @@ import altair as alt
 > >   + 거래처비교현황 시각화
 > >   + 제품비교현황 시각화
 > > > * app_ml.py
-> > >   + prophet_total.pkl 로드 -> Prophet 라이브러리를 이용하여 센터 기준 집계 데이터로 학습한 예측기
+> > >   + prophet_total.pkl 로드 -> 구글코랩에서 Prophet 라이브러리를 이용하여 센터 기준 집계 데이터로 학습한 예측기
 > > >   + 사용자 입력날짜 센터 출고수량 예측 -> prophet_total.pkl 예측기 사용
 > > >   + 센터 출고수량 예측(모델평가 : 평균절대오차(MAE, Mean Absolute Error) -> prophet_total.pkl 예측기 사용
 > > >   + 거래처별 출고수량 학습 및 예측
