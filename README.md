@@ -28,9 +28,9 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 
 데이터 describe : RAW데이터셋의 describe
 ## 사용 라이브러리
-streamlit
-fbprophet
-altair
+* streamlit
+* prophet
+* altair
 
 ## 소스파일구조 및 구현기능
 > * common.py -> 함수 모음, 전역변수(데이터프레임)
