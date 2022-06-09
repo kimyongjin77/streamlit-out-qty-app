@@ -28,32 +28,19 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 
 데이터 describe : RAW데이터셋의 describe
 ## 사용 라이브러리
-```python
-import streamlit as st
-import pandas as pd
-from fbprophet import Prophet
-from fbprophet.plot import plot_plotly
-from sklearn.metrics import mean_absolute_error
-import calendar
-import datetime
-from datetime import date
-from dateutil.relativedelta import relativedelta
-import joblib
-import math
-import matplotlib.pyplot as plt
-import platform
-from matplotlib import font_manager, rc
-import altair as alt
-```
-## 소스파일구조 및 기능
-> * common.py -> 함수 모음
+streamlit
+fbprophet
+altair
+
+## 소스파일구조 및 구현기능
+> * common.py -> 함수 모음, 전역변수(데이터프레임)
 > * app.py -> main()
 >   + 그래프를 위한 한글폰트로드, 데이터로드
 > > * app_eda.py
 > >   + 데이터 개요
 > >   + 전체출고현황 시각화
-> >   + 거래처비교현황 시각화
-> >   + 제품비교현황 시각화
+> >   + 거래처비교출고현황 시각화
+> >   + 제품비교출고현황 시각화
 > > > * app_ml.py
 > > >   + prophet_total.pkl 로드 -> 구글코랩에서 Prophet 라이브러리를 이용하여 센터 기준 집계 데이터로 학습한 예측기
 > > >   + 사용자 입력날짜 센터 출고수량 예측 -> prophet_total.pkl 예측기 사용
