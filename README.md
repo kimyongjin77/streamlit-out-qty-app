@@ -27,10 +27,21 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 데이터 헤드 : RAW데이터셋의 처음 5개
 
 데이터 describe : RAW데이터셋의 describe
+
+## 플랫폼
+* AWS EC2 Linux : free tier
+* streamlit 1.9
+
+## 개발언어
+* python 3.7
+
+## 개발툴
+* vscode
+* 구글코랩
+
 ## 사용 라이브러리
-* streamlit
-* prophet
-* altair
+* pip install streamlit
+* pip install fbprophet
 
 ## 소스파일구조 및 구현기능
 > * common.py -> 함수 모음, 전역변수(데이터프레임)
