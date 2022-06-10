@@ -28,16 +28,12 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 
 데이터 describe : RAW데이터셋의 describe
 
-## 플랫폼
-* AWS EC2 Linux : free tier
-* streamlit 1.9
-
-## 개발언어
+## 개발 환경
+* OS : windows 10
+* Anaconda
 * python 3.7
-
-## 개발툴
-* vscode
-* 구글코랩
+* streamlit 1.9
+* vscode, jupyter, 구글코랩, github
 
 ## 사용 라이브러리
 * pip install streamlit
