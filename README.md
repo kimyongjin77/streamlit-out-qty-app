@@ -55,7 +55,7 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 > > >   + 거래처별 출고수량 학습 및 예측
 > > >   + 제품별 출고수량 학습 및 예측
 
-## UI [웹사이트 링크](http://ec2-3-34-2-16.ap-northeast-2.compute.amazonaws.com:8504)
+## UI [http://ec2-3-34-2-16.ap-northeast-2.compute.amazonaws.com:8504]
 
 ![img1](https://user-images.githubusercontent.com/105832520/172524356-4b030ae2-037c-47cf-9f84-50e52b68ca75.PNG)
 ![img2](https://user-images.githubusercontent.com/105832520/172525210-ce31dd92-e81f-4c75-b142-2e2b0d9dd832.PNG)
