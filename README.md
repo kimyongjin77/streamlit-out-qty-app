@@ -38,6 +38,7 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 ## 사용 라이브러리
 * pip install streamlit
 * pip install fbprophet
+* pip install altair
 
 ## 소스파일구조 및 구현기능
 > * common.py -> 함수 모음, 전역변수(데이터프레임)
