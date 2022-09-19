@@ -56,7 +56,7 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 > > >   + 거래처별 출고수량 학습 및 예측
 > > >   + 제품별 출고수량 학습 및 예측
 
-## 출고물량 예측.ipynb(구글코랩노트북) [https://drive.google.com/file/d/1opTbgtyDmWstNpry8lzAW76W0pRa1YG9/view?usp=sharing]
+## 출고물량 예측.ipynb [https://github.com/kimyongjin77/Learning/blob/main/%EC%B6%9C%EA%B3%A0%EB%AC%BC%EB%9F%89%20%EC%98%88%EC%B8%A1.ipynb]
 ## 앱URL [http://ec2-3-34-2-16.ap-northeast-2.compute.amazonaws.com:8504]
 
 ![img1](https://user-images.githubusercontent.com/105832520/172524356-4b030ae2-037c-47cf-9f84-50e52b68ca75.PNG)
