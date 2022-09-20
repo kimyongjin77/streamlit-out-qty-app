@@ -57,7 +57,7 @@ RAW데이터파일 용량이 너무 커서 집계/요약한 파일로 생성하�
 > > >   + 제품별 출고수량 학습 및 예측
 
 ## 출고물량 예측.ipynb [https://github.com/kimyongjin77/Learning/blob/main/%EC%B6%9C%EA%B3%A0%EB%AC%BC%EB%9F%89%20%EC%98%88%EC%B8%A1.ipynb]
-## AWS EC2 Linux FreeTier
+## AWS EC2 Linux FreeTier로 시스템사양 문제로 중지 상태 일 수 있음을 양해 바랍니다.
 ## 웹대시보드링크 [http://ec2-3-34-2-16.ap-northeast-2.compute.amazonaws.com:8504]
 
 ![img1](https://user-images.githubusercontent.com/105832520/172524356-4b030ae2-037c-47cf-9f84-50e52b68ca75.PNG)
